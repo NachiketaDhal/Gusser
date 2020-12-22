@@ -26,8 +26,14 @@ minNum.textContent = min;
 maxNum.textContent = max;
 
 // Play Again eventListener
-game.addEventListener('mousedown', function(e) {
-  if(e.target.classList.contains("play-again")) {
+// game.addEventListener('mousedown', function(e) {
+//   if(e.target.classList.contains("play-again")) {
+//     window.location.reload();
+//   }
+// });
+
+guessBtn.addEventListener('mousedown', function(e) {
+  if(guessBtn.classList.contains("play-again")) {
     window.location.reload();
   }
 });
@@ -44,7 +50,7 @@ guessBtn.addEventListener('click', function(){
   // GAME WON
 
   // Check if won
-  if(guess === winningNum){
+  else if(guess === winningNum){
     gameOver(true, `${winningNum} is correct, YOU WIN!`)
 
   } else {
@@ -64,7 +70,7 @@ guessBtn.addEventListener('click', function(){
       guessInput.value = "";
 
       // Tell user its the wrong number
-      setMessage(`Wrong Guess, ${guessesLeft} guesses left!`, 'red');
+      setMessage(`${guess} is Wrong Guess, ${guessesLeft} guesses left!`, 'red');
     }
   }
 });
